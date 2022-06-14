@@ -14,5 +14,7 @@ namespace EntityLayer.Concrete
         public string CategoryName { get; set; }
         public string CategoryDescription { get; set; }
         public bool CatgorySatatus { get; set; }
+        //
+        public List<Article> Articles { get; set; }
     }
 }
