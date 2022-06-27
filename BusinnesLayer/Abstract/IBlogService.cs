@@ -13,8 +13,10 @@ namespace BusinnesLayer.Abstract
         void BlogDelete(Article article);
         void BlogUpdate(Article article);
         List<Article> GetList();
-        Category GetById(int id);
+        Article GetById(int id);//category idi değiştirdim
 
-        List<Article> GetArticlesListWithCategory();
+        List<Article> GetArticlesListWithCategory();//data access de oluşturduğumuz liste methodu çağırıyoruz.kategori ile beraber listeyi getir diyoruz.
+
+        
     }
 }

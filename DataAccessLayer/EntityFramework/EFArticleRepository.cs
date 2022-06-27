@@ -17,7 +17,7 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var c = new Context())
             {
-                return c.Articles.Include(x => x.Category).ToList();
+                return c.Articles.Include(x => x.Category).ToList();//kategori tablosuna ait değerleri liste olarak getirecek.
             }
                 
         }

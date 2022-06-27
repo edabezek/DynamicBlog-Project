@@ -42,10 +42,20 @@ namespace BusinnesLayer.Concrete
         {
             throw new NotImplementedException();
         }
+        public List<Article> GetBlogById(int id)//id ye göre blog getir.
+        {
+            return _articleDal.GetListAll(x => x.BlogId == id);
+        }
+            
 
         public List<Article> GetList()
         {
             return _articleDal.GetListAll();
+        }
+
+        Article IBlogService.GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
