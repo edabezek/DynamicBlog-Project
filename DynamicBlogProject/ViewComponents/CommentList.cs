@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DynamicBlogProject.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,25 @@ namespace DynamicBlogProject.ViewComponents //component oluşturunca olması ger
         
         public IViewComponentResult Invoke() //invoke : çağırmak
         {
-            return View();
+            var commentValues = new List<UserComment>
+            {
+                new UserComment
+                {
+                    Id=1,
+                    UserName="Ed"
+                },
+                new UserComment
+                {
+                    Id=2,
+                    UserName="Mesut"
+                },
+                new UserComment
+                {
+                    Id=2,
+                    UserName="Kaan"
+                }
+            };
+            return View(commentValues);
         }
     }
 }

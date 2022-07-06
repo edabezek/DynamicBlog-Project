@@ -1,1 +1,7 @@
-﻿<h1>burası </h1>
+﻿@model IEnumerable<DynamicBlogProject.Models.UserComment>
+
+    @foreach(var item  in Model)
+    {
+    <p>@item.Id</p>
+    <p>@item.UserName</p>
+    }
