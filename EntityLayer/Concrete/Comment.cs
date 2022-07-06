@@ -18,6 +18,6 @@ namespace EntityLayer.Concrete
         public bool CommentStatus { get; set; }
         //
         public int BlogId { get; set; }
-        public Article Article { get; set; }
+        public Article Article { get; set; }// yanlış ekleme güncellenmeli
     }
 }

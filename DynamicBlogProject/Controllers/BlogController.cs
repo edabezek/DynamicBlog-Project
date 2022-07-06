@@ -16,9 +16,10 @@ namespace DynamicBlogProject.Controllers
             var values = bm.GetArticlesListWithCategory();
             return View(values);
         }
-        public IActionResult BlogDetails(int id)
+        public IActionResult BlogReadAll(int id)
         {
-            return View();
+            var values = bm.GetBlogById(id);
+            return View(values);
         }
     }
 }
