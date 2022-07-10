@@ -1,2 +1,2 @@
 # DynamicBlog-Project
-Asp.Net 5.0
+Asp.Net Core 5.0
