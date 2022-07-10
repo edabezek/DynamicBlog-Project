@@ -57,5 +57,11 @@ namespace BusinnesLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Article> GetArticlesListByWriter(int id)
+        {
+
+            return _articleDal.GetListAll(x => x.WriterId == id);
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace BusinnesLayer.Abstract
         Article GetById(int id);//category idi değiştirdim
 
         List<Article> GetArticlesListWithCategory();//data access de oluşturduğumuz liste methodu çağırıyoruz.kategori ile beraber listeyi getir diyoruz.
+        List<Article> GetArticlesListByWriter(int id);//yazar ile blogları getir ,Other Writings By The Author kısmı için 
 
-        
     }
 }
