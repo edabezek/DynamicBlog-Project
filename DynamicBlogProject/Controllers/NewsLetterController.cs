@@ -23,7 +23,7 @@ namespace DynamicBlogProject.Controllers
         {
             p.MailStatus = true;
             nm.AddNewsLetter(p);
-            return PartialView();
+            return PartialView();//RedirectToAction kullanılabilir yada ajax ile sorun çözülebilr.
         }
     }
 }
