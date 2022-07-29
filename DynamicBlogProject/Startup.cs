@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,18 @@ namespace DynamicBlogProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSession();//sessionun çalýþmasý için 
+
+
+            //proje seviyesinde auth saðlamak için yazdýk.
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                //RequireAuthenticatedUser kullanýcýnýn sisteme giriþ yetkisinin olmasý 
+
+                config.Filters.Add(new AuthorizeFilter(policy));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +61,8 @@ namespace DynamicBlogProject
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();//session çalýþacak
 
             app.UseRouting();
 
