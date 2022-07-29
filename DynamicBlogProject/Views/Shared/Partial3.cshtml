@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
                 <h3>About US</h3>
-                <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. lacinia eget consectetur sed, convallis at tellus..</p>
+                <p>A blog (a truncation of "weblog")[1] is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries (posts). Posts are typically displayed in reverse chronological order, so that the most recent post appears first, at the top of the web page..</p>
                 <div class="read">
-                    <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                    <a href="/About/Index/" class="btn btn-primary read-m">Read More</a>  @*devamını oku kısmı için yönlendrime*@
                 </div>
             </div>
             <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
@@ -74,16 +74,7 @@
             <!-- subscribe -->
             <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
                 <h2>Signup to our newsletter</h2>
-                <div class="subscribe-main text-left">
-                    <div class="subscribe-form">
-                        <form action="#" method="post" class="subscribe_form">
-                            <input class="form-control" type="email" placeholder="Enter your email..." required="">
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
-                        </form>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <p>We respect your privacy.No spam ever!</p>
-                </div>
+                @await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml")
                 <!-- //subscribe -->
             </div>
         </div>
@@ -122,7 +113,7 @@
             </div>
             <div class="w3layouts-agile-copyrightbottom">
                 <p>
-                    © @DateTime.Now.Year Weblog. All Rights Reserved | Design by
+                    © @DateTime.Now.Year Asp.Net Core 5.0 Project | Design by
                     <a href="http://w3layouts.com/">W3layouts</a>
                 </p>
 
