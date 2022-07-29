@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,13 @@ namespace DynamicBlogProject
 
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+            //proje seviyesinde auth saðladýðýmýz için diðer sayfalarda hata veriyordu, bununla login sayfasýnda kalmasýný saðladýk.
+            services.AddMvc();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x=> 
+            {
+                x.LoginPath = "/Login/Index"; // diðer sayfalar açýldýðýnda kullanýcý (giriþ yapmadan) hata vermeyip tekrar login sayfasýna yönlendiriyor.
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
