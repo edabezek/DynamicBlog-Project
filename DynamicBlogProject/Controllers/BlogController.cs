@@ -1,5 +1,6 @@
 ﻿using BusinnesLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DynamicBlogProject.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EFArticleRepository());
@@ -23,5 +25,6 @@ namespace DynamicBlogProject.Controllers
             var values = bm.GetBlogById(id);
             return View(values);
         }
+        
     }
 }

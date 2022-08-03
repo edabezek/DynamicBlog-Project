@@ -53,6 +53,11 @@ namespace BusinnesLayer.Concrete
             return _articleDal.GetListAll();
         }
 
+        public List<Article> GetLastThreePost()//blog sayfasında latest post a son 3 blog getirecek
+        {
+            return _articleDal.GetListAll().Take(3).ToList();
+        }
+
         Article IBlogService.GetById(int id)
         {
             throw new NotImplementedException();
