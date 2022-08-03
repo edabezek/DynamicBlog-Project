@@ -25,6 +25,11 @@ namespace DynamicBlogProject.Controllers
             var values = bm.GetBlogById(id);
             return View(values);
         }
+        public IActionResult BlogListByWriter()//yazara göre blog listesi
+        {
+            var values=bm.GetArticlesListByWriter(1);
+            return View(values);
+        }
         
     }
 }

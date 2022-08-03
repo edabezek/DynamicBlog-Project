@@ -18,19 +18,9 @@ namespace BusinnesLayer.Concrete
             _articleDal = articleDal;
         }
 
-        public void BlogAdd(Article article)
+        public List<Article> GetArticlesListByWriter(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void BlogDelete(Article article)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void BlogUpdate(Article article)
-        {
-            throw new NotImplementedException();
+            return _articleDal.GetListAll(x => x.WriterId == id);
         }
 
         public List<Article> GetArticlesListWithCategory()
@@ -38,35 +28,39 @@ namespace BusinnesLayer.Concrete
             return _articleDal.GetListWithCategory();
         }
 
-        public Category GetById(int id)
+        public Article GetById(int id)
         {
             throw new NotImplementedException();
+            //return _articleDal.GetListAll(x => x.BlogId == id);
         }
-        public List<Article> GetBlogById(int id)//id ye göre blog getir.
+        public List<Article> GetBlogById(int id)
         {
             return _articleDal.GetListAll(x => x.BlogId == id);
         }
-            
 
         public List<Article> GetList()
         {
             return _articleDal.GetListAll();
         }
 
+        public void TAdd(Article t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(Article t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(Article t)
+        {
+            throw new NotImplementedException();
+        }
         public List<Article> GetLastThreePost()//blog sayfasında latest post a son 3 blog getirecek
         {
             return _articleDal.GetListAll().Take(3).ToList();
         }
 
-        Article IBlogService.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Article> GetArticlesListByWriter(int id)
-        {
-
-            return _articleDal.GetListAll(x => x.WriterId == id);
-        }
     }
 }

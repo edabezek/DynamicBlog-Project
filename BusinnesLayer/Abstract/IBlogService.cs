@@ -7,16 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinnesLayer.Abstract
 {
-    public interface IBlogService
-    {
-        void BlogAdd(Article article);
-        void BlogDelete(Article article);
-        void BlogUpdate(Article article);
-        List<Article> GetList();
-        Article GetById(int id);//category idi değiştirdim
-
+    public interface IBlogService : IGenericService<Article>
+    {       
         List<Article> GetArticlesListWithCategory();//data access de oluşturduğumuz liste methodu çağırıyoruz.kategori ile beraber listeyi getir diyoruz.
         List<Article> GetArticlesListByWriter(int id);//yazar ile blogları getir ,Other Writings By The Author kısmı için 
-
     }
 }
