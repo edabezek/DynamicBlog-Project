@@ -65,12 +65,12 @@ namespace DynamicBlogProject
             //app.UseStatusCodePages();//404 sayfasý için ekliyoruz.
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1","?code={0}");
 
-
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseSession();//session çalýþacak
+            app.UseAuthentication();//loginden sonra giriþ yapmamýzý saðlayacak-yazar paneline giriþ saðlayacak.
+
+            //app.UseSession();//session çalýþmasý için
 
             app.UseRouting();
 

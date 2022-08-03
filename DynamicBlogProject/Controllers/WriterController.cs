@@ -10,7 +10,7 @@ namespace DynamicBlogProject.Controllers
     public class WriterController : Controller
     {
         //[Authorize]
-        [AllowAnonymous]//geçici
+        //[AllowAnonymous]//geçici
         public IActionResult Index() //Views/Writer/index.html e bağlı
         {
             return View();

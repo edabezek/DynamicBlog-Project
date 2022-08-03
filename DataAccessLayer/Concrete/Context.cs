@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=(LocalDB)\MSSQLLocalDB;Database=DynamicBlogDB;integrated security=true;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-D5P9P7E;Database=DynamicBlogDB;integrated security=true;");
          }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Article> Articles { get; set; }
