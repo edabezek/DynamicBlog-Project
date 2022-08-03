@@ -29,5 +29,16 @@ namespace DynamicBlogProject.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
+        public PartialViewResult WriterNavbarPartial()//writer paneli sol kısım 
+        {
+            return PartialView();
+        }
+        [AllowAnonymous]
+        public PartialViewResult WriterFooterPartial()//writer panel alt ksım
+        {
+            return PartialView();
+        }
+
     }
 }
