@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Article
+
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>New Blog Entry</h1>
+<br />
+@using (Html.BeginForm("BlogAdd", "Blog", FormMethod.Post)) //blogAdd daki işlemi yapacak , blogların içerisinde, methot post olduğu zaman
+{
+    @Html.Label("Blog Header");
+    @Html.TextBoxFor(x=>x.BlogTitle,new {@class="form-control"});
+    @Html.ValidationMessageFor(x=>x.BlogTitle);
+    <br />
+    <br />
+    @Html.Label("Blog Image");
+    @Html.TextBoxFor(x=>x.BlogImage,new {@class="form-control"});
+    @Html.ValidationMessageFor(x=>x.BlogImage);
+     <br />
+     <br />
+    @Html.Label("Blog Thumbnail Image");
+    @Html.TextBoxFor(x=>x.BlogThumbnailImage,new {@class="form-control"});
+    @Html.ValidationMessageFor(x=>x.BlogThumbnailImage);
+    <br />
+    @Html.Label("Category");
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.cv,new {@class="form-control"});//cv den gelen değeri çekecek
+    <br />
+    @Html.Label("Blog Content");
+    @Html.TextAreaFor(x=>x.BlogContent,10,3,new {@class="form-control"});//10-3 boyutunda 
+    @Html.ValidationMessageFor(x=>x.BlogContent);
+     <br />
+     <br />
+    <button class="btn btn-info">Submit</button>
+}

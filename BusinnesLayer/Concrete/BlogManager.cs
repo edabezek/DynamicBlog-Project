@@ -45,7 +45,7 @@ namespace BusinnesLayer.Concrete
 
         public void TAdd(Article t)
         {
-            throw new NotImplementedException();
+            _articleDal.Insert(t);  
         }
 
         public void TDelete(Article t)
