@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
 
-<h1>BlogListByWriter</h1>
+<h1>Writer Blogs</h1>
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -25,11 +25,11 @@
             <td>@item.Category.CategoryName</td>@*GetListCategoryByWriterBm controller*@
             <td>@item.BlogStatus</td>
             <td><a href="/Blog/DeleteBlog/@item.BlogId" class="btn btn-danger">Delete</a></td>
-            <td><a href="#" class="btn btn-warning">Edit</a></td>
+            <td><a href="/Blog/EditBlog/@item.BlogId" class="btn btn-warning">Edit</a></td>
         </tr>
     }
 
 </table>
-<a href="#" class="btn btn-primary">Add New Blog</a>
+<a href="/Blog/BlogAdd/" class="btn btn-primary">Add New Blog</a>
 
 

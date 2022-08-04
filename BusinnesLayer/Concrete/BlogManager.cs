@@ -54,7 +54,7 @@ namespace BusinnesLayer.Concrete
 
         public void TUpdate(Article t)
         {
-            throw new NotImplementedException();
+            _articleDal.Update(t);
         }
         public List<Article> GetLastThreePost()//blog sayfasında latest post a son 3 blog getirecek
         {

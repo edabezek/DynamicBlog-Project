@@ -17,6 +17,7 @@ namespace DynamicBlogProject.Controllers
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EFArticleRepository());
+        CategoryManager cm = new CategoryManager(new EFCategoryRepository());
         public IActionResult Index()
         {
             var values = bm.GetArticlesListWithCategory();
@@ -37,7 +38,7 @@ namespace DynamicBlogProject.Controllers
         [HttpGet]  
         public IActionResult BlogAdd()//yazarın yeni blog ekleme işleminden önce listeleme yapacağız
         {
-            CategoryManager cm = new CategoryManager(new EFCategoryRepository());
+            
             List<SelectListItem> categoryValues = (from x in cm.GetList()
                                                    select new SelectListItem
                                                    {
@@ -78,6 +79,30 @@ namespace DynamicBlogProject.Controllers
             //silme işlemi
             bm.TDelete(blogValue);//bizim göndermiş olduğumuz id ye karşılık gelen satırın tamamını alacak
             return RedirectToAction("BlogListByWriter");//bizi tekrar BlogListByWriter sayfasına yönlendir
+        }
+        [HttpGet]
+        public IActionResult EditBlog(int id)//bu kısım tabloda edit tıklayınca açılan kısma gidecek
+        {
+            var blogValue = bm.TGetById(id);//güncelleme işleminin yapılması için,önce güncellenecek değerin çağırılması gerekiyor,burada id ye göre bul 
+            //dropdown category
+            List<SelectListItem> categoryValues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,//ön tarafta görünecek ismi
+                                                       Value = x.CategoryId.ToString()//arka taraftaki kodu 
+                                                   }).ToList();
+            ViewBag.cv = categoryValues;//viewbag ile categoryvalues dan gelen değerleri dropdown a taşıyacağız
+            
+            return View(blogValue);//ve değeri döndür-view a bas diyoruz
+        }
+        [HttpPost]
+        public IActionResult EditBlog(Article p)//seçtiğimiz edit sayfasındaki yeşil edit butonuna tıkladığımızda sadece bir değer değiştirilip kaydedilirse,atamadığımız sütunlara ya null yada default değer atar.bunun için date ve blogstatus ü burada belirtmek zorundayız.
+        {
+            p.WriterId = 1;
+            p.BlogCreateDate =DateTime.Parse( DateTime.Now.ToShortDateString());
+            p.BlogStatus = true;
+            bm.TUpdate(p);//parametreden gelen değeri güncelle
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }
