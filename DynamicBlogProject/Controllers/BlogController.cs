@@ -71,5 +71,13 @@ namespace DynamicBlogProject.Controllers
             }
             return View();//işlem geçersizse bir view dönecek
         }
+        public IActionResult DeleteBlog(int id)
+        {
+            //silinecek değerin bulunması 
+            var blogValue=bm.TGetById(id);
+            //silme işlemi
+            bm.TDelete(blogValue);//bizim göndermiş olduğumuz id ye karşılık gelen satırın tamamını alacak
+            return RedirectToAction("BlogListByWriter");//bizi tekrar BlogListByWriter sayfasına yönlendir
+        }
     }
 }

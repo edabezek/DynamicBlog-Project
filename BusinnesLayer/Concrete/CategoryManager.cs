@@ -18,7 +18,7 @@ namespace BusinnesLayer.Concrete
             //eFCategoryRepository = new EFCategoryRepository();
             _categoryDal = categoryDal;
         }
-        public Category GetById(int id)
+        public Category TGetById(int id)
         {
             return _categoryDal.GetById(id);
         }

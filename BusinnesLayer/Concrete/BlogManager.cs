@@ -28,10 +28,9 @@ namespace BusinnesLayer.Concrete
             return _articleDal.GetListWithCategory();
         }
 
-        public Article GetById(int id)
-        {
-            throw new NotImplementedException();
-            //return _articleDal.GetListAll(x => x.BlogId == id);
+        public Article TGetById(int id)//blog silmek için kullanacağız
+        {           
+            return _articleDal.GetById(id);
         }
         public List<Article> GetBlogById(int id)
         {
@@ -50,7 +49,7 @@ namespace BusinnesLayer.Concrete
 
         public void TDelete(Article t)
         {
-            throw new NotImplementedException();
+            _articleDal.Delete(t);//controllerdan-deleteblog buraya gelecek
         }
 
         public void TUpdate(Article t)
