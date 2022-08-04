@@ -10,6 +10,6 @@ namespace DataAccessLayer.Abstract
     public interface IArticleDal : IGenericDal<Article>
     {
         List<Article> GetListWithCategory();//kategoriyle beraber listeyi getir,sadece bloglara özel olduğu için burada tanımlıyoruz 
-
+        List<Article> GetListWitCategoryByWriter(int id);//yazara göre kategoriyi getir.
     }
 }

@@ -62,5 +62,10 @@ namespace BusinnesLayer.Concrete
             return _articleDal.GetListAll().Take(3).ToList();
         }
 
+        public List<Article> GetListCategoryByWriterBm(int id)
+        {
+            return _articleDal.GetListWitCategoryByWriter(id);
+        }
+
     }
 }

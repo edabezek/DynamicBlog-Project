@@ -21,8 +21,8 @@
         <tr>
             <th>@item.BlogId</th>
             <td>@item.BlogTitle</td>
-            <td>@item.BlogCreateDate</td>
-            <td>@item.CategoryId</td>
+            <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
+            <td>@item.Category.CategoryName</td>@*GetListCategoryByWriterBm controller*@
             <td>@item.BlogStatus</td>
             <td><a href="#" class="btn btn-danger">Delete</a></td>
             <td><a href="#" class="btn btn-warning">Edit</a></td>

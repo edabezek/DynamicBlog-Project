@@ -31,7 +31,7 @@ namespace DynamicBlogProject.Controllers
         }
         public IActionResult BlogListByWriter()//yazara göre blog listesi kısmı-tablo
         {
-            var values=bm.GetArticlesListByWriter(1);
+            var values=bm.GetListCategoryByWriterBm(1);
             return View(values);
         }
         [HttpGet]  

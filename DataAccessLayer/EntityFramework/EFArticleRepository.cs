@@ -13,6 +13,14 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFArticleRepository : GenericRepository<Article>, IArticleDal
     {
+        public List<Article> GetListWitCategoryByWriter(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Articles.Include(x => x.Category).Where(x=>x.WriterId==id).ToList();
+            }
+        }
+
         public List<Article> GetListWithCategory()
         {
             using (var c = new Context())
