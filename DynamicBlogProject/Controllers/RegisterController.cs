@@ -31,7 +31,7 @@ namespace DynamicBlogProject.Controllers
                 p.WriterStatus = true;
                 p.WriterAbout = "Deneme test";
 
-                wm.AddWriter(p);
+                wm.TAdd(p);
                 return RedirectToAction("Index", "Blog");
             }
             else//diyelim ismi 55 karakter girdik 
