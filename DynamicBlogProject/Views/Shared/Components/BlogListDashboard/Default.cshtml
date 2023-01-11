@@ -13,7 +13,7 @@
                                 <th> Title </th>
                                 <th> Category </th>
                                 <th> Date </th>
-                                <th> Deatils </th>
+                                <th> Details </th>
 
                             </tr>
                         </thead>
@@ -30,7 +30,7 @@
                                     <td>
                                         <label class="badge badge-gradient-success">@item.Category.CategoryName</label>
                                     </td>
-                                    <td> @(((DateTime)item.BlogCreateDate).ToString("dd-mmm-yyyy")) </td>
+                                    <td> @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy")) </td>
                                     <td>
                                         <a href="/Blog/BlogReadAll/@item.BlogId" class="btn btn-dark">Details</a>
                                     </td>

@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinnesLayer.Concrete;
+using BusinnesLayer.ValidationRules;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +16,7 @@ namespace DynamicBlogProject.Controllers
     {
         //[Authorize]
         //[AllowAnonymous]//geçici
+        WriterManager wm = new WriterManager(new EFWriterRepository());
         public IActionResult Index() //Views/Writer/index.html e bağlı
         {
             return View();
@@ -39,6 +45,35 @@ namespace DynamicBlogProject.Controllers
         {
             return PartialView();
         }
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult WriterEditProfile()//writer ı getirecek hangisi ise giriş yapan Writer Profile Update
 
+        {
+            var writerValues = wm.TGetById(1);
+            return View(writerValues);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult WriterEditProfile(Writer p)//writer update işlemi yaparken doğrulama ekliyoruz-- Writer Profile Update 
+        {
+            //WriterValidator writerValidator = new WriterValidator();
+            //ValidationResult results = writerValidator.Validate(p); //using fluent validation --p den gelen değeri konrol edecek
+            //if (results.IsValid)//eğer result valid ise
+            //{
+            wm.TUpdate(p);
+            return RedirectToAction("Index", "Dashboard");
+            //}
+            //else 
+            //{
+            //    foreach (var item in results.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            //    }
+            //}
+            //return View();
+
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace DynamicBlogProject.ViewComponents.Blog
         BlogManager bm = new BlogManager(new EFArticleRepository());
         public IViewComponentResult Invoke()
         {
-            var values = bm.GetArticlesListWithCategory();
+            var values = bm.GetArticlesListWithCategory();//kategori ile birlikte getirecek
             return View(values);
         }
     }

@@ -38,14 +38,14 @@ namespace BusinnesLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public Writer TGetById(int id)
+        public Writer TGetById(int id)//WriterEditProfile 
         {
-            throw new NotImplementedException();
+            return _writerDal.GetById(id);
         }
 
         public void TUpdate(Writer t)
         {
-            throw new NotImplementedException();
+            _writerDal.Update(t);
         }
     }
 }
